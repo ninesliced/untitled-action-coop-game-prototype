@@ -3,8 +3,12 @@ class_name Actor
 
 enum ActorState {
 	NORMAL,
-	ROLL
+	ROLL,
+	ASPIRE,
 }
+# Aspire
+
+var aspire_direction = 0
 
 # @export var state: ActorState = ActorState.NORMAL
 
@@ -18,7 +22,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 
 func _on_aspiration_zone_area_entered(area: Area2D) -> void:
