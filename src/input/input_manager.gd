@@ -104,13 +104,13 @@ func get_all_devices():
 
 
 
-func assign_player_to_user(user_index: int, player: Player):
+func assign_player_to_user(user_index: int, player: Node):
 	user_data[user_index]["player"] = player
 
 func remove_player_from_user(user_index: int):
 	user_data[user_index]["player"] = null
 
-func get_player(input_user: int) -> Player:
+func get_player(input_user: int) -> Node:
 	print("user_data ", user_data)
 	return user_data[input_user]["player"]
 
