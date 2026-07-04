@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Untitled Action-Coop Game Prototype"
+run/main_scene="uid://dndldgbho27vf"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
