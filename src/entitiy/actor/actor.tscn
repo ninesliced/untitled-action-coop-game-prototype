@@ -11,7 +11,6 @@ size = Vector2(437, 57)
 
 [node name="Actor" unique_id=1121591121 instance=ExtResource("1_tlgfp")]
 script = ExtResource("1_g2gpv")
-captured = null
 
 [node name="AspirationZone" type="Area2D" parent="." index="1" unique_id=433333864]
 
@@ -29,3 +28,4 @@ scale = Vector2(0.9339001, 0.564891)
 shape = SubResource("RectangleShape2D_34h15")
 
 [connection signal="area_entered" from="AspirationZone" to="." method="_on_aspiration_zone_area_entered"]
+[connection signal="body_shape_entered" from="AspirationZone" to="." method="_on_aspiration_zone_body_shape_entered"]
