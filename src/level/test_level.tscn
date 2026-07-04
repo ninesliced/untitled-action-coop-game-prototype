@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://3fqqctb0jaxm"]
+
+[ext_resource type="PackedScene" uid="uid://doxa0d27iwvku" path="res://src/level/level.tscn" id="1_pcf1f"]
+[ext_resource type="Script" uid="uid://ci857fnf7gj05" path="res://src/level/test_level.gd" id="2_bq0i6"]
+
+[node name="TestLevel" unique_id=994459672 instance=ExtResource("1_pcf1f")]
+script = ExtResource("2_bq0i6")
