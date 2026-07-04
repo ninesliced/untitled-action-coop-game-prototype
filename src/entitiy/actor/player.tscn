@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ciqnpwhga4aig"]
+
+[ext_resource type="PackedScene" uid="uid://tjcf0mo0svsm" path="res://src/entitiy/actor/actor.tscn" id="1_620bn"]
+[ext_resource type="Script" uid="uid://cw32ibyuyadfo" path="res://src/entitiy/actor/player.gd" id="2_n0khx"]
+
+[node name="Player" unique_id=1121591121 instance=ExtResource("1_620bn")]
+script = ExtResource("2_n0khx")
+captured = false
