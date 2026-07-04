@@ -1,8 +1,10 @@
 extends Node2D
 
-@export var splitscreen_view: SplitscreenView
+@export var join_action: StringName
 
-var player_tscn: PackedScene = load("res://scenes/entities/player/player.tscn")
+@export_file_path("*.tscn") var player_path: String
+@onready var player_tscn = load(player_path)
+
 
 signal player_joined(user_index: int)
 signal player_left(user_index: int)
@@ -16,6 +18,7 @@ func join(device_index: int):
 	var user_index = InputManager.add_user(device_index)
 	_on_player_join(user_index)
 	player_joined.emit(user_index)
+	print("join")
 
 
 func leave(user_index: int):
@@ -24,11 +27,12 @@ func leave(user_index: int):
 	player_left.emit(user_index)
 	_delete_player(user_index)
 	InputManager.remove_user(user_index)
+	print("leave")
 
 
 func handle_join_leave_input():
 	for device_index in InputManager.get_all_devices():
-		if MultiplayerInput.is_action_just_pressed(device_index, "game_join"):
+		if MultiplayerInput.is_action_just_pressed(device_index, join_action):
 			if InputManager.is_device_joined(device_index):
 				leave(InputManager.get_user_from_device_index(device_index))
 			else:
@@ -37,27 +41,22 @@ func handle_join_leave_input():
 
 func _on_player_join(user_index: int):
 	var player = _spawn_player(user_index)
-	splitscreen_view.add_cell.call_deferred(player)
 	#player.apply_invincibility(PLAYER_SPAWN_INVINCIBILITY)
 
-func _spawn_player(user_index, spawn_position: Vector2 = Vector2.INF) -> Player:
-	var player_positions = $PlayerSpawnPositions 
-	var player: Player = player_tscn.instantiate()
-	player.user_index = user_index
+func _spawn_player(user_index, spawn_position: Vector2 = Vector2.INF) -> Node:
+	var player: Node = player_tscn.instantiate()
+	if player is Player:
+		player.user_index = user_index
 	
 	get_parent().add_child(player)
 	
-	if spawn_position.is_finite():
-		player.global_position = spawn_position
-	else:
-		player.global_position = global_position
+	player.global_position = global_position
 	
 	InputManager.assign_player_to_user(user_index, player)
 	return player
 
 
 func _delete_player(user_index):
-	var player: Player = InputManager.get_player(user_index)
-	splitscreen_view.remove_cell_with_target(player)
+	var player: Node = InputManager.get_player(user_index)
 	
 	player.queue_free()

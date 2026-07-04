@@ -27,5 +27,5 @@ func _process(delta: float) -> void:
 func _on_aspiration_zone_area_entered(area: Area2D) -> void:
 	var entity = area.get_parent()
 	if entity is Entity and hold_entity == null:
-		entity.inhale()
+		#entity.inhale()
 		hold_entity = entity

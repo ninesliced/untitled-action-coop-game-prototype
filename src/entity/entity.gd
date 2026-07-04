@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func inhaled():
+func inhale():
 	captured = true
 	visible = false
 	

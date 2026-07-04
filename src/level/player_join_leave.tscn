@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cy525dsyamu5x"]
+
+[ext_resource type="Script" uid="uid://d3jxbua8qljnp" path="res://src/level/player_join_leave.gd" id="1_3d30q"]
+
+[node name="PlayerJoinLeave" type="Node2D" unique_id=1426768192]
+script = ExtResource("1_3d30q")

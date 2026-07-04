@@ -5,3 +5,6 @@
 
 [node name="TestLevel" unique_id=994459672 instance=ExtResource("1_pcf1f")]
 script = ExtResource("2_bq0i6")
+
+[node name="PlayerJoinLeave" parent="." index="1" unique_id=1426768192]
+position = Vector2(356, 541)
