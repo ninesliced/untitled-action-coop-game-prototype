@@ -5,19 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bf7j"]
 size = Vector2(106, 102)
 
-[sub_resource type="Gradient" id="Gradient_t4p4j"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v2t2l"]
-gradient = SubResource("Gradient_t4p4j")
-
 [node name="Entity" type="CharacterBody2D" unique_id=1121591121]
 script = ExtResource("1_t4p4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1480338730]
 position = Vector2(58, 55)
 shape = SubResource("RectangleShape2D_5bf7j")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1943340601]
-position = Vector2(55, 52)
-scale = Vector2(0.33203125, 82.74999)
-texture = SubResource("GradientTexture1D_v2t2l")

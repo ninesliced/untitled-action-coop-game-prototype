@@ -1,6 +1,31 @@
-[gd_scene format=3 uid="uid://cwk8fohue7rv4"]
+[gd_scene format=3 uid="uid://tjcf0mo0svsm"]
 
 [ext_resource type="Script" uid="uid://bdpdea7xwmnxv" path="res://src/entitiy/actor/actor.gd" id="1_g2gpv"]
+[ext_resource type="PackedScene" uid="uid://doa3an0sqca2u" path="res://src/entitiy/enitity.tscn" id="1_tlgfp"]
 
-[node name="Actor" type="Node2D" unique_id=1408313359]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlgfp"]
+size = Vector2(136, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34h15"]
+size = Vector2(437, 57)
+
+[node name="Actor" unique_id=1121591121 instance=ExtResource("1_tlgfp")]
 script = ExtResource("1_g2gpv")
+captured = null
+
+[node name="AspirationZone" type="Area2D" parent="." index="1" unique_id=433333864]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AspirationZone" index="0" unique_id=1470753706]
+position = Vector2(59.999996, 54)
+scale = Vector2(1.0674301, 0.94908583)
+shape = SubResource("RectangleShape2D_tlgfp")
+
+[node name="VacuumZone" type="Area2D" parent="." index="2" unique_id=1066090011]
+position = Vector2(28, 94)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VacuumZone" index="0" unique_id=784880990]
+position = Vector2(239, -37)
+scale = Vector2(0.9339001, 0.564891)
+shape = SubResource("RectangleShape2D_34h15")
+
+[connection signal="area_entered" from="AspirationZone" to="." method="_on_aspiration_zone_area_entered"]
